@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO Example</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Establish the connection to the Socket.IO server
+            var socket = io.connect('http://localhost:8000/updates', {
+                reconnect: true
+            });
+
+            // Define the function that will handle 'event_created' events
+            const listener = function(event, data) {
+                console.log(`Received for ${event} the following data: ${data}`);
+            };
+
+            // Attach the listener to the 'event_created' event
+            socket.onAny((eventName, ...args) => {
+               console.log(eventName)
+               console.log(args)
+              // ...
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Socket.IO Client</h1>
+</body>
+</html>

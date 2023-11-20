@@ -39,7 +39,7 @@
 - **Curl Example**:
   ```bash
   curl -G "http://localhost:8000/events/get_all"
-  curl -G "http://localhost:8000/events/get_all" --data-urlencode "wherekey=location" --data-urlencode "whereValue=Tel Aviv"
+  curl -G "http://localhost:8000/events/get_all" --data-urlencode "wherekey=location" --data-urlencode "whereValue=Tel Aviv" --data-urlencode "orderBy=start_time"
   ```
 
 #### 4. Delete Event
@@ -132,7 +132,7 @@
 
 3. **Viewing WebSocket Messages**:
    - In the browser, open the Developer Tools (usually F12 or right-click and select "Inspect").
-   - check the console
+   - check the console log in devloper tools
 
 4. **Interacting with the Application**:
    - If your application has a user interface that triggers events (like creating, updating, or deleting events), interact with it.
@@ -144,5 +144,4 @@
 
 6. **Troubleshooting**:
    - If you don't see the expected output, check the logs of your Docker containers. Use `docker logs [container_name]` to view logs.
-   - Ensure that all services (Flask, Redis, Nginx, etc.) are configured correctly and are communicating as expected.
 

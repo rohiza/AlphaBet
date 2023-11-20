@@ -1,0 +1,9 @@
+Flask==2.3.2
+Flask-Caching==2.0.2
+Flask-SQLAlchemy==3.0.3
+Flask-SocketIO==5.3.6
+Flask-APScheduler==1.13.1
+gevent
+redis
+gunicorn==20.1.0
+psycopg2-binary==2.9.6
