@@ -146,14 +146,6 @@
    - In the browser, open the Developer Tools (usually F12 or right-click and select "Inspect").
    - check the console log in devloper tools
 
-4. **Interacting with the Application**:
-   - If your application has a user interface that triggers events (like creating, updating, or deleting events), interact with it.
-   - As these actions occur, watch the Developer Tools' WebSocket section for any messages sent by your server.
-
-5. **Monitoring Background Process**:
-   - If the background process sends messages about upcoming events, these should also appear in the WebSocket messages.
-   - Ensure your background process is configured to send messages to the WebSocket channel correctly.
-
-6. **Troubleshooting**:
+4. **Troubleshooting**:
    - If you don't see the expected output, check the logs of your Docker containers. Use `docker logs [container_name]` to view logs.
 
