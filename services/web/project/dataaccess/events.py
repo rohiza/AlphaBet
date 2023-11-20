@@ -22,13 +22,16 @@ class EventDao():
     @error_handler
     def create_events(self, events):
 
+        new_events = []
+
         for event in events:
             new_event = Event(**event)
+            new_events.append(new_event.as_dict())
             db.session.add(new_event)
 
         db.session.commit()
 
-        return new_event
+        return new_events
 
 
     @error_handler

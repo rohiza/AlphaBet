@@ -4,15 +4,27 @@
 
 - **Endpoint**: `/create`
 - **Method**: `POST`
-- **Description**: Creates a new event.
+- **Description**: Creates a new events its possible to create more than one.
 - **Input**: JSON payload with event details.
-- **Output**: JSON object with created event details; 200 status code on success.
+- **Output**: JSON object with created events details; 200 status code on success.
 - **Error Handling**: Logs error; returns empty JSON object with 500 status code on failure.
 - **Curl Example**:
   ```bash
-  curl -X POST http://localhost:8000/create \
-       -H "Content-Type: application/json" \
-       -d '{"events": {"title": "Sample Event", "start_time": "2023-12-01T10:00:00"}}'
+
+    curl -X POST http://localhost:8000/create \
+         -H "Content-Type: application/json" \
+         -d '{
+               "events": [
+                   {
+                       "title": "Example Event",
+                       "description": "This is a sample event description.",
+                       "start_time": "2023-12-01T10:00:00",
+                       "end_time": "2023-12-01T12:00:00",
+                       "location": "123 Example Street"
+                   }
+               ]
+             }'
+
   ```
 
 #### 2. Get Event by ID
@@ -52,7 +64,7 @@
 - **Error Handling**: Logs error; returns empty JSON object with 500 status code on failure.
 - **Curl Example**:
   ```bash
-  curl -X POST http://localhost:8000/delete \
+  curl -X POST "http://localhost:8000/events/delete" \
        -H "Content-Type: application/json" \
        -d '{"id": "123"}'
   ```

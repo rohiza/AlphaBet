@@ -20,14 +20,14 @@ def create():
     try:
 
         payload = request.get_json()
-        new_event = event_dao.create_events(payload['events'])
+        events_ids = event_dao.create_events(payload['events'])
         socketio.emit(
             'event_created',
             json.dumps('event_created'),
             namespace='/updates',
         )
 
-        return jsonify(new_event.as_dict()), 200
+        return jsonify(events_ids), 200
 
     except Exception as e:
         current_app.logger.error(f"{payload}")
